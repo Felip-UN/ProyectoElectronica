@@ -1,4 +1,43 @@
 # ProyectoElectronica
+## Diagrama de flujo
+```mermaid
+flowchart TD
+    A("Inicio") --> n1["Presencia"]
+    n1 -- Si --> n2["Sensores revisaran presencia"]
+    n1 -- No --> n3["Seguir revisando"]
+    n3 --> n1
+    n2 --> n4["Es una botella?"] & n5["Es humedo?"] & n6["Libera Metano?"]
+    n4 -- Si --> n7["Salida True"]
+    n4 -- No --> n8["Salida False"]
+    n5 -- Si --> n9["Salida True"]
+    n5 -- No --> n10["Salida False"]
+    n6 -- Si --> n11["Salida True"]
+    n6 -- No --> n12["Salida False"]
+    n9 --> n13["Guardar Salidas 1 2 y 3 en un arreglo"]
+    n10 --> n13
+    n11 --> n13
+    n12 --> n13
+    n8 --> n13
+    n7 --> n13
+    n13 --> n14["Comparar Arreglo con la lista de valores guardada"]
+    n14 --> n15["Arreglo == Aprovechable"]
+    n15 -- Si --> n16["Mover servo hasta canal oprovechable"]
+    n15 -- No --> n18["Arreglo == Organico"]
+    n18 -- Si --> n19["Mover servo hasta canal Organico"]
+    n19 --> n17["Depositar el residuo"]
+    n18 -- No --> n20["No Movr srvo d canal"]
+    n16 --> n17
+    n20 --> n17
+    n17 --> n21["End"]
+
+    n1@{ shape: diam}
+    n4@{ shape: diam}
+    n5@{ shape: diam}
+    n6@{ shape: diam}
+    n15@{ shape: diam}
+    n18@{ shape: diam}
+    n21@{ shape: rounded}
+```
 
 ## Servomotores
 
