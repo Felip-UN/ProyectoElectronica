@@ -2,7 +2,7 @@
 #define Threshold 400  
 // Es el umbral (400) que determina si hay presencia de humo/gas.
 
-#define MQ2pin 0
+#define MQ2pin A0
 // Define que el sensor está conectado al pin analógico A0 (pin 0).
 
 float sensorValue;  //variable para almacenar el valor del sensor
